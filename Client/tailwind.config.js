@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         customwhite: "#FCFEFE",
       },
+      backgroundImage: {
+        'hero': "url('./assets/hero.png)"
+      }
     },
   },
   plugins: [],

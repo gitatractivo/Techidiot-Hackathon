@@ -1,11 +1,12 @@
 import React from "react";
 import MediaControlCard from "../components/CardComponent";
+import hero from "../assets/hero.png";
 
 const Hero = () => {
   return (
     <section>
-      <div className="w-5/6 mx-auto py-56 px-20">
-        <div className="flex flex-col gap-12">
+      <div className="w-5/6 mx-auto py-56 px-20 z-[-1] bg-hero">
+        <div className="flex flex-col gap-12 bg-hero">
           <div>
             <h1 className="font-bold tracking-wide text-[2rem]">
               You deserve to be happy.
