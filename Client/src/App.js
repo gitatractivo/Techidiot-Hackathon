@@ -2,14 +2,19 @@ import "./App.css";
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
 import Signup from "./pages/SignUp";
+import NavBar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Login></Login> */}
-      {/* <Hero></Hero> */}
-      <Signup></Signup>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Hero />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
