@@ -1,12 +1,11 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
-
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
+      {/* <Login></Login> */}
       <Hero></Hero>
     </div>
   );
