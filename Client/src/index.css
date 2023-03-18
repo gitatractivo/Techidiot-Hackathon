@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-color: #EEF9FF;
+}
+.form{
+  background-color: white;
+  box-shadow: 1rem;
+}
+input[type="checkbox"] {
+  transform: scale(1.5); /* Increase the size of the checkboxes */
+  margin-right: 0.5rem; /* Add some spacing between the checkboxes and the labels */
+}
+
 .progress-bar {
     height: 20px;
     border-radius: 10px;
@@ -12,4 +24,22 @@
     height: 100%;
     border-radius: 10px;
     background-color: blue;
+  }
+  
+    .button {
+      background-color: white;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+    
+  }
+  button:hover{
+    background-color: #52D4FE;
+    transition: all 0.1s ease-in;         
   }
