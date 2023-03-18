@@ -10,9 +10,9 @@ const MultiStepForm = () => {
   });
 
   const steps = [
-    { title: 'Step 1', options: ['Option 1', 'Option 2', 'Option 3'] },
-    { title: 'Step 2', options: ['Option 4', 'Option 5', 'Option 6'] },
-    { title: 'Step 3', options: ['Option 7', 'Option 8', 'Option 9'] }
+    { title: 'Are you gay', options: ['YES', 'VERY GAY', 'SUPER GAY'] },
+    { title: 'Are you not gay', options: ['NO', 'very no', 'super no'] },
+    { title: 'There is no cure for gays', options: ['sad', 'very sad', 'super sad'] }
   ];
 
   const handleOptionChange = (stepNum, option) => {
@@ -44,6 +44,7 @@ const MultiStepForm = () => {
           value={option}
           checked={options[`step${step}`].includes(option)}
           onChange={() => handleOptionChange(step, option)}
+          className="options"
         />
         <label>{option}</label>
       </div>
@@ -56,19 +57,24 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className='flex flex-col w-11/12 mx-auto justify-center'>
+    <div className='flex flex-col mt-20 w-11/12 mx-auto'>
+        
         <div className="progress-bar">
         <div className="fill" style={{ width: getProgressPercentage() }} />
       </div>
-      <h2>{steps[step - 1].title}</h2>
+      <div><h1>Help us match you to a therapist</h1></div>
+      <div className='bg-blue-500'>
+        <div className='ml-2'>
+      <h2 className='text-4xl'>{steps[step - 1].title}</h2>
       {renderOptions()}
-      <div>
+      
         <button onClick={handlePreviousStep}>Previous</button>
         {step < steps.length ? (
-          <button onClick={handleNextStep}>Next</button>
+          <button className='ml-2' onClick={handleNextStep}>Next</button>
         ) : (
           <button>Submit</button>
         )}
+        </div>
       </div>
     </div>
   );
