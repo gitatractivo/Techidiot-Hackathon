@@ -1,14 +1,16 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Reviews from "./pages/Reviews";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
-      <Hero></Hero>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/review" element={<Reviews />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
