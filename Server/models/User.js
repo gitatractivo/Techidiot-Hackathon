@@ -40,14 +40,20 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    dob:{
-        type: Date,
+    age:{
+        type: Number,
         required: true,
     },
+    therapists: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Therapist',
+        default: null
+    }]
+
 
 
 
 });
-const model = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema)
 
-module.exports=  {model};
+module.exports=  User;

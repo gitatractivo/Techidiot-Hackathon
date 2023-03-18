@@ -5,7 +5,10 @@ import {
   Input,
   FormHelperText,
   Button,
+  TextField
 } from "@mui/material";
+import axios from "axios";
+
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -13,6 +16,7 @@ const Login = () => {
     password: "",
     firstName: "",
     lastName: "",
+    age: 0,
   });
 
   const handleChange = (e) => {
@@ -23,9 +27,22 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
     console.log(credentials);
+    try {
+      console.log(credentials);
+      const resp = await axios.post(
+        "http://localhost:5000/user/signup",
+        credentials
+      );
+      const { token } = resp.data;
+      localStorage.setItem("token", token);
+      // onLogin function
+      // console.log(resp.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -40,42 +57,45 @@ const Login = () => {
       <div className="basis-1/2">
         <div className="flex flex-col gap-12 px-20 py-20">
           <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
-            </FormHelperText>
-          </FormControl>
-
-          <FormControl>
-            <InputLabel htmlFor="my-password">Password</InputLabel>
-            <Input id="my-password" aria-describedby="my-password-text" />
-            <FormHelperText id="my-password-text">
-              We'll never share your password.
-            </FormHelperText>
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="first-name-input">First Name</InputLabel>
-            <Input
-              id="first-name-input"
-              aria-describedby="first-name-helper-text"
+            <TextField
+              id="email"
+              label="Email"
+              variant="outlined"
               onChange={handleChange}
             />
-            <FormHelperText id="first-name-helper-text">
-              Please enter your first name.
-            </FormHelperText>
           </FormControl>
-
           <FormControl>
-            <InputLabel htmlFor="last-name-input">Last Name</InputLabel>
-            <Input
-              id="last-name-input"
-              aria-describedby="last-name-helper-text"
+            <TextField
+              id="password"
+              label="password"
+              type="password"
+              variant="outlined"
               onChange={handleChange}
             />
-            <FormHelperText id="last-name-helper-text">
-              Please enter your last name.
-            </FormHelperText>
+          </FormControl>
+          <FormControl>
+            <TextField
+              id="firstName"
+              label="First Name"
+              variant="outlined"
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <TextField
+              id="lastName"
+              label="Last Name"
+              variant="outlined"
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <TextField
+              id="age"
+              label="Age"
+              variant="outlined"
+              onChange={handleChange}
+            />
           </FormControl>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
             Login
