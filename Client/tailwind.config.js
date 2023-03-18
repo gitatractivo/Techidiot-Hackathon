@@ -8,6 +8,8 @@ module.exports = {
       },
       backgroundImage: {
         "hero-pattern": "url('./assets/hero.png')",
+        "hero-pattern-2": "url('./assets/hero2.jpg')",
+        "hero-pattern-3": "url('./assets/hero3.png')",
       },
     },
   },
