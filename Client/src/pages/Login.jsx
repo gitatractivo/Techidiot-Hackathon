@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { FormControl, InputLabel, Input, FormHelperText,Button } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  FormHelperText,
+  Button,
+} from "@mui/material";
+import axios from "axios";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -15,8 +22,23 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      console.log(credentials);
+      const resp = await axios.post(
+        "http://localhost:5000/user/login",
+        credentials
+      );
+      const {token} = resp.data;
+      localStorage.setItem('token',token);
+      // onLogin function
+    } catch (error) {
+      // console.log("message",error.response.data.message);
+      // console.log(error.AxiosError);
+
+      // alert(error.response.data.message);
+    }
     console.log(credentials);
   };
 
@@ -32,16 +54,24 @@ const Login = () => {
       <div className="basis-1/2">
         <div className="flex flex-col gap-24 px-20 py-20">
           <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
+            <InputLabel htmlFor="email">Email address</InputLabel>
+            <Input
+              id="email"
+              aria-describedby="my-helper-text"
+              onChange={handleChange}
+            />
             <FormHelperText id="my-helper-text">
               We'll never share your email.
             </FormHelperText>
           </FormControl>
 
           <FormControl>
-            <InputLabel htmlFor="my-password">Password</InputLabel>
-            <Input id="my-password" aria-describedby="my-password-text" />
+            <InputLabel htmlFor="password">Password</InputLabel>
+            <Input
+              id="password"
+              aria-describedby="my-password-text"
+              onChange={handleChange}
+            />
             <FormHelperText id="my-password-text">
               We'll never share your password.
             </FormHelperText>

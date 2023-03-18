@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
@@ -40,13 +40,20 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    dob:{
-        type: Date,
+    age:{
+        type: Number,
         required: true,
     },
+    therapists: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Therapist',
+        default: null
+    }]
+
 
 
 
 });
+const User = mongoose.model("User", userSchema)
 
-export default mongoose.model("User", userSchema);
+module.exports=  User;
