@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
-const port = 5000;
+const port = 6000;
 
 
 const app = express();
