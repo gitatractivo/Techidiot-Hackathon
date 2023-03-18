@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import "../index.css"
 
@@ -6,23 +8,33 @@ const MultiStepForm = () => {
   const [options, setOptions] = useState({
     step1: [],
     step2: [],
-    step3: []
+    step3: [],
+    step4:[],
   });
 
+
   const steps = [
-    { title: 'Are you gay', options: ['YES', 'VERY GAY', 'SUPER GAY'] },
-    { title: 'Are you not gay', options: ['NO', 'very no', 'super no'] },
-    { title: 'There is no cure for gays', options: ['sad', 'very sad', 'super sad'] }
+    { title: 'What type of Therapy are you looking for?', options: ['Individal', 'Couple', 'Teen'] },
+    { title: 'What is your gender?', options: ['Man', 'Woman'] },
+    { title: 'Have you ever been in therapy before', options: ['Yes', 'No'] },
+    { title: 'Have you ever been in therapy beforeee', options: ['Yesss', 'Noo'] },
+    
   ];
 
-  const handleOptionChange = (stepNum, option) => {
-    const updatedOptions = { ...options };
-    updatedOptions[`step${stepNum}`] = [
-      ...options[`step${stepNum}`],
-      option
-    ];
-    setOptions(updatedOptions);
+  const handleOptionChange = (step, option) => {
+    const optionsForStep = options[`step${step}`] || []; // Initialize to empty array if undefined
+    const index = optionsForStep.indexOf(option);
+    if (index > -1) {
+      optionsForStep.splice(index, 1);
+    } else {
+      optionsForStep.push(option);
+    }
+    setOptions({
+      ...options,
+      [`step${step}`]: optionsForStep,
+    });
   };
+  
 
   const handleNextStep = () => {
     if (step < steps.length) {
@@ -37,19 +49,20 @@ const MultiStepForm = () => {
   };
 
   const renderOptions = () => {
+    const optionsForStep = options[`step${step}`] || []; // Check if property exists
     return steps[step - 1].options.map((option) => (
-      <div key={option}>
+      <div className='mt-2 text-xl' key={option}>
         <input
           type="checkbox"
           value={option}
-          checked={options[`step${step}`].includes(option)}
+          checked={optionsForStep.includes(option)}
           onChange={() => handleOptionChange(step, option)}
-          className="options"
         />
         <label>{option}</label>
       </div>
     ));
   };
+  
 
   const getProgressPercentage = () => {
     const progress = ((step - 1) / (steps.length - 1)) * 100;
@@ -57,27 +70,26 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className='flex flex-col mt-20 w-11/12 mx-auto'>
-        
-        <div className="progress-bar">
+    <div className='form flex flex-col mt-20 w-11/12 mx-auto'>
+      <div className='m-6'>
+      <div className="progress-bar">
         <div className="fill" style={{ width: getProgressPercentage() }} />
       </div>
-      <div><h1>Help us match you to a therapist</h1></div>
-      <div className='bg-blue-500'>
-        <div className='ml-2'>
-      <h2 className='text-4xl'>{steps[step - 1].title}</h2>
+      <div className=''>
+      <h2 className='text-3xl font-normal'>{steps[step - 1].title}</h2>
       {renderOptions()}
       
-        <button onClick={handlePreviousStep}>Previous</button>
+        <button className='button rounded-md text-xl' onClick={handlePreviousStep}>Previous</button>
         {step < steps.length ? (
-          <button className='ml-2' onClick={handleNextStep}>Next</button>
+          <button className='button rounded-md text-xl ml-2 mt-2' onClick={handleNextStep}>Next</button>
         ) : (
-          <button>Submit</button>
+          <button className='button text-xl'>Submit</button>
         )}
-        </div>
+      </div>
       </div>
     </div>
   );
 };
 
 export default MultiStepForm;
+
