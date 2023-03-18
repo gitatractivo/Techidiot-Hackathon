@@ -7,8 +7,8 @@ module.exports = {
         customwhite: "#FCFEFE",
       },
       backgroundImage: {
-        'hero': "url('./assets/hero.png)"
-      }
+        "hero-pattern": "url('./assets/hero.png')",
+      },
     },
   },
   plugins: [],
