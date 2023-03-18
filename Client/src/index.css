@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.progress-bar {
+    height: 20px;
+    border-radius: 10px;
+    background-color: #ccc;
+  }
+  
+  .fill {
+    height: 100%;
+    border-radius: 10px;
+    background-color: blue;
+  }
