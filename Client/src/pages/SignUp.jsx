@@ -18,13 +18,12 @@ const Signup = () => {
     <div className="w-5/6 mx-auto h-full">
       <div className="flex justify-center items-center h-full">
         <div className="bg-white">
-          {/* For form */}
           <form
             onSubmit={(e) => handleSubmit(e)}
             className="flex flex-col gap-10 p-10"
           >
             <h2 className="text-center font-serif text-pink-500">
-              GRAPHQL CRUD SIGN~UP
+              SIGN~UP
             </h2>
             <p className="my-1">
               <input
