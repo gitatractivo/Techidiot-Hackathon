@@ -12,10 +12,11 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import {BrowserRouter , Routes , Route} from 'react-router-dom'
 import { LogoDev } from "@mui/icons-material";
 import logo from "../assets/logo.svg";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Products", "Pricing", "Blog","Reviews"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -59,7 +60,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+           LOGO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -92,9 +93,11 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
+                
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+              
               ))}
             </Menu>
           </Box>
