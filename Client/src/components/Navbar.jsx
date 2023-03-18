@@ -12,12 +12,9 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-<<<<<<< HEAD
 import {BrowserRouter , Routes , Route} from 'react-router-dom'
-=======
 import { LogoDev } from "@mui/icons-material";
 import logo from "../assets/logo.svg";
->>>>>>> a212fc54e87c456f6a0cdb9818ae00e0a27ec7aa
 
 const pages = ["Products", "Pricing", "Blog","Reviews"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
