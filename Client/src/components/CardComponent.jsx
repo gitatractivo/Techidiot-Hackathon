@@ -4,9 +4,11 @@ import Typography from "@mui/material/Typography";
 import KeyboardTabIcon from "@mui/icons-material/KeyboardTab";
 import {Link} from "react-router-dom";
 
+
 export default function MediaControlCard(props) {
   return (
     <section>
+      <Link to="/Login">
       <div className="flex flex-col gap-6 md:flex-row md:gap-4">
         <Card sx={{ minWidth: 275 }}>
           <CardContent className="bg-[#159EEC] text-white">
@@ -33,6 +35,7 @@ export default function MediaControlCard(props) {
           </CardContent>
         </Card>
       </div>
+      </Link>
     </section>
   );
 }
