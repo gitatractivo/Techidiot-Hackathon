@@ -61,7 +61,7 @@ function ResponsiveAppBar(props) {
               textDecoration: "none",
             }}
           >
-            LOGO
+            HEALINGLY
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -95,7 +95,9 @@ function ResponsiveAppBar(props) {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" href={`/${page}`}>{page}</Typography>
+                  <Typography textAlign="center" href={`/${page}`}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

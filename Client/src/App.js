@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import BookSession from "./pages/BookSession";
+import ThankyouPage from "./pages/ThankyouPage";
 
 function App() {
   const [isTopOfPage, setIsTopOfPage] = useState(true);
@@ -42,6 +43,7 @@ function App() {
         <Route path="/therapist" element={<Therapist />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/booksession" element={<BookSession/>}></Route> 
+        <Route path="/thankyou" element={<ThankyouPage/>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

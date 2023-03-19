@@ -3,8 +3,10 @@ import React from "react";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "../BookSession.css";
+import { useNavigate } from "react-router-dom";
 
 const BookSession = () => {
+  const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   return (
     <div className="w-5/6 mx-auto mt-10">
@@ -23,7 +25,7 @@ const BookSession = () => {
         </p>
       </div>
       <div className="mt-5 mb-5 text-center">
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onSubmit={()=>navigate('/thankyou')}>
           Submit
         </Button>
       </div>
