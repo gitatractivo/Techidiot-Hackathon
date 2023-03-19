@@ -13,15 +13,16 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
 
-const pages = ["Login", "Signup","Reviews"];
+const pages = ["login", "signup", "reviews"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const topOfPage = props.isTopOfPage;
-  const transparentOrNot = topOfPage?'static':'fixed';
+  const transparentOrNot = topOfPage ? "static" : "fixed";
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -93,9 +94,8 @@ function ResponsiveAppBar(props) {
               }}
             >
               {pages.map((page) => (
-                
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" href={`/${page}`}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -125,6 +125,7 @@ function ResponsiveAppBar(props) {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
+                href={`/${page}`}
               >
                 {page}
               </Button>

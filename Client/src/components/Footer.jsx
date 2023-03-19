@@ -4,7 +4,7 @@ import SocialMediaIcons from "./SocialMediaIcons";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-600 mt-5">
+    <footer className="bg-blue-600">
       <div className="w-5/6 mx-auto flex flex-col justify-center items-center gap-10 py-10">
         <div className="grid grid-cols-4 gap-24">
           {/* CHILD 1 */}
