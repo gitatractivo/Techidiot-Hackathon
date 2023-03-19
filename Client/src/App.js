@@ -10,6 +10,7 @@ import Therapist from "./pages/Therapist";
 import MultiStepForm from "./pages/MultiStepForm";
 import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
+import Profile from "./pages/Profile";
 
 function App() {
   const [isTopOfPage, setIsTopOfPage] = useState(true);
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Hero />}></Route>
         <Route path="/form" element={<MultiStepForm />}></Route>
         <Route path="/therapist" element={<Therapist />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
