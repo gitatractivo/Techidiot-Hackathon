@@ -95,4 +95,33 @@ const getUser = async(req,res,next)=>{
           res.status(500).send("Internal Server Error");
      }
 }
-module.exports = { login, signup ,getUser}
+
+const options = async (req, res, next) => {
+     console.log("userLogin", req.body)
+     console.log("userLogin", req.params.user)
+
+     const userId = req.params.user._id;
+     const { options } = req.body;
+     let existingTherapist;
+     try {
+          // Find the user by ID
+          const user = await User.findById(userId);
+
+          // Check if the user exists
+          if (!user) {
+               return res.status(404).json({ message: 'User not found' });
+          }
+
+          // Update the user object
+          user.options = options ;
+          
+          // Save the updated user object
+          const updatedUser = await user.save();
+
+          // Return the updated user object
+          return res.status(200).json(updatedUser);
+     } catch (error) {
+          return res.status(500).json({ message: error.message });
+     }
+}
+module.exports = { login, signup ,getUser,options}

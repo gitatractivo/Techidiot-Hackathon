@@ -1,7 +1,6 @@
-
-
-import React, { useState } from 'react';
-import "../index.css"
+import React, { useState } from "react";
+import "../index.css";
+import axios from "axios";
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
@@ -9,16 +8,20 @@ const MultiStepForm = () => {
     step1: [],
     step2: [],
     step3: [],
-    step4:[],
+    step4: [],
   });
 
-
   const steps = [
-    { title: 'What type of Therapy are you looking for?', options: ['Individal', 'Couple', 'Teen'] },
-    { title: 'What is your gender?', options: ['Man', 'Woman'] },
-    { title: 'Have you ever been in therapy before', options: ['Yes', 'No'] },
-    { title: 'Have you ever been in therapy beforeee', options: ['Yesss', 'Noo'] },
-    
+    {
+      title: "What type of Therapy are you looking for?",
+      options: ["Individal", "Couple", "Teen"],
+    },
+    { title: "What is your gender?", options: ["Man", "Woman"] },
+    { title: "Have you ever been in therapy before", options: ["Yes", "No"] },
+    {
+      title: "Have you ever been in therapy beforeee",
+      options: ["Yesss", "Noo"],
+    },
   ];
 
   const handleOptionChange = (step, option) => {
@@ -34,7 +37,22 @@ const MultiStepForm = () => {
       [`step${step}`]: optionsForStep,
     });
   };
-  
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    console.log(options);
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token)
+      const resp = await axios.put("http://localhost:5000/user/options", {
+        options,
+        token,
+      });
+      console.log(resp.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleNextStep = () => {
     if (step < steps.length) {
@@ -51,7 +69,7 @@ const MultiStepForm = () => {
   const renderOptions = () => {
     const optionsForStep = options[`step${step}`] || []; // Check if property exists
     return steps[step - 1].options.map((option) => (
-      <div className='mt-2 text-xl' key={option}>
+      <div className="mt-2 text-xl" key={option}>
         <input
           type="checkbox"
           value={option}
@@ -62,7 +80,6 @@ const MultiStepForm = () => {
       </div>
     ));
   };
-  
 
   const getProgressPercentage = () => {
     const progress = ((step - 1) / (steps.length - 1)) * 100;
@@ -70,26 +87,37 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className='form flex flex-col mt-20 w-11/12 mx-auto'>
-      <div className='m-6'>
-      <div className="progress-bar">
-        <div className="fill" style={{ width: getProgressPercentage() }} />
-      </div>
-      <div className=''>
-      <h2 className='text-3xl font-normal'>{steps[step - 1].title}</h2>
-      {renderOptions()}
-      
-        <button className='button rounded-md text-xl' onClick={handlePreviousStep}>Previous</button>
-        {step < steps.length ? (
-          <button className='button rounded-md text-xl ml-2 mt-2' onClick={handleNextStep}>Next</button>
-        ) : (
-          <button className='button text-xl'>Submit</button>
-        )}
-      </div>
+    <div className="form flex flex-col mt-20 w-11/12 mx-auto">
+      <div className="m-6">
+        <div className="progress-bar">
+          <div className="fill" style={{ width: getProgressPercentage() }} />
+        </div>
+        <div className="">
+          <h2 className="text-3xl font-normal">{steps[step - 1].title}</h2>
+          {renderOptions()}
+
+          <button
+            className="button rounded-md text-xl"
+            onClick={handlePreviousStep}
+          >
+            Previous
+          </button>
+          {step < steps.length ? (
+            <button
+              className="button rounded-md text-xl ml-2 mt-2"
+              onClick={handleNextStep}
+            >
+              Next
+            </button>
+          ) : (
+            <button className="button text-xl" onClick={handleOnSubmit}>
+              Submit
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default MultiStepForm;
-
