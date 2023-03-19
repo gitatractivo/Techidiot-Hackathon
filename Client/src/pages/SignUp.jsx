@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-[#159dec46]">
+    <div className="">
       <div className="w-5/6 mx-auto flex flex-col gap-10 md:flex-row md:justify-between">
         <div className="flex flex-col basis-1/2 gap-10 items-center justify-center">
           <h1 className="text-4xl bg-gradient-to-r from-blue-600 to-green-300 text-transparent bg-clip-text">
