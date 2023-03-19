@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import StarIcon from "@mui/icons-material/Star";
 import EventAvailableOutlinedIcon from "@mui/icons-material/EventAvailableOutlined";
-
+import { Link } from "react-router-dom";
 
 export default function MediaCard({ dataSet }) {
   return (
@@ -42,7 +42,7 @@ export default function MediaCard({ dataSet }) {
       <CardActions>
         <div className="flex flex-col md:flex-row justify-center w-full items-center gap-x-10 mt-1 px-4 py-2">
           <Button size="small" variant="contained" color="warning">
-            View Profile
+            <Link to="/profile">View Profile</Link>
           </Button>
           <Button size="small" variant="contained" color="secondary">
             Book Session
