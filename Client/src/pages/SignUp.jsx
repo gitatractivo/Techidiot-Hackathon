@@ -8,6 +8,7 @@ import {
   TextField,
 } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -17,6 +18,7 @@ const Login = () => {
     lastName: "",
     age: 0,
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -35,8 +37,13 @@ const Login = () => {
         "http://localhost:5000/user/signup",
         credentials
       );
-      const { token } = resp.data;
-      localStorage.setItem("token", token);
+      const { authtoken: token } = resp.data;
+      if (token) {
+        console.log(token);
+        localStorage.setItem("token", token);
+        // onLogin function
+        navigate("/form");
+      }
       // onLogin function
       // console.log(resp.data);
     } catch (error) {
@@ -45,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-[#159dec46]">
+    <div className="">
       <div className="w-5/6 mx-auto flex flex-col gap-10 md:flex-row md:justify-between">
         <div className="flex flex-col basis-1/2 gap-10 items-center justify-center">
           <h1 className="text-4xl bg-gradient-to-r from-blue-600 to-green-300 text-transparent bg-clip-text">
