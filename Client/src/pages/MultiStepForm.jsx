@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
@@ -10,6 +11,9 @@ const MultiStepForm = () => {
     step3: [],
     step4: [],
   });
+
+
+  const navigate = useNavigate();
 
   const steps = [
     {
@@ -48,7 +52,7 @@ const MultiStepForm = () => {
         options,
         token,
       });
-      console.log(resp.data);
+      if(resp.data) navigate("/therapist");
     } catch (error) {
       console.log(error);
     }

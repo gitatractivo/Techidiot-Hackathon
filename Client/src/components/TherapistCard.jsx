@@ -7,10 +7,12 @@ import Button from "@mui/material/Button";
 import StarIcon from "@mui/icons-material/Star";
 import EventAvailableOutlinedIcon from "@mui/icons-material/EventAvailableOutlined";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function MediaCard({ dataSet }) {
+  const navigate = useNavigate()
   return (
-    <Card sx={{ maxWidth: 345 ,marginBottom: "20px"}}>
+    <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
       <CardMedia
         sx={{ height: 140 }}
         image={`https://robohash.org/${dataSet.name}.png?size=620x350`}
@@ -33,7 +35,7 @@ export default function MediaCard({ dataSet }) {
         </div>
         <div className="p-2 mt-2">
           <div className="flex flex-row items-center justify-start w-full gap-x-1">
-            <EventAvailableOutlinedIcon/>
+            <EventAvailableOutlinedIcon />
             <span className="font-bold capitalize">next available date</span>
           </div>
           <p>{dataSet.next_available_date}</p>
@@ -44,7 +46,12 @@ export default function MediaCard({ dataSet }) {
           <Button size="small" variant="contained" color="warning">
             <Link to="/profile">View Profile</Link>
           </Button>
-          <Button size="small" variant="contained" color="secondary">
+          <Button
+            size="small"
+            variant="contained"
+            color="secondary"
+            onClick={() => navigate("/booksession")}
+          >
             Book Session
           </Button>
         </div>
