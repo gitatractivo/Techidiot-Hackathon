@@ -20,14 +20,18 @@ const Therapist = () => {
           </p>
           <div className="mt-14">
             <a href="#therapist">
-              <Button variant="contained" color="primary" className="w-1/2  z-[10]">
+              <Button
+                variant="contained"
+                color="primary"
+                className="w-1/2  z-[10]"
+              >
                 Get Started
               </Button>
             </a>
           </div>
         </div>
       </div>
-      <div className="w-5/6 mx-auto mt-10" id="therapist">
+      <div className="w-5/6 mx-auto mt-10">
         <div className="grid grid-cols-1 gap-y-20 md:grid-cols-3 md:gap-y-5 md:gap-x-5">
           {dataSet.map((data) => {
             return <TherapistCard dataSet={data} key={data.id} />;

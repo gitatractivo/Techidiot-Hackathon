@@ -11,6 +11,7 @@ import MultiStepForm from "./pages/MultiStepForm";
 import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
+import BookSession from "./pages/BookSession";
 
 function App() {
   const [isTopOfPage, setIsTopOfPage] = useState(true);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/form" element={<MultiStepForm />}></Route>
         <Route path="/therapist" element={<Therapist />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/booksession" element={<BookSession/>}></Route> 
       </Routes>
       <Footer />
     </BrowserRouter>
