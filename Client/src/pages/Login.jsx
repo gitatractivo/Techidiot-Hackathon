@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { FormControl, TextField, Button } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -24,9 +26,15 @@ const Login = () => {
         "http://localhost:5000/user/login",
         credentials
       );
-      const { token } = resp.data;
-      localStorage.setItem("token", token);
-      // onLogin function
+      console.log(resp.data)
+      const { authtoken:token } = resp.data;
+      if(token){
+        console.log(token)
+        localStorage.setItem("token", token);
+        // onLogin function
+        navigate('/form')
+      }
+      
     } catch (error) {
       // console.log("message",error.response.data.message);
       // console.log(error.AxiosError);

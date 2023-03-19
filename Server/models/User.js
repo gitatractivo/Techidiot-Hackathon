@@ -2,6 +2,14 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
+const object = new mongoose.Schema({
+    step1: [String],
+    step2: [String],
+    step3: [String],
+    step4: [String],
+
+});
+
 const userSchema = new Schema({
     firstName: {
         type: String,
@@ -48,12 +56,17 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Therapist',
         default: null
-    }]
+    }],
+    options:{
+        type:object,
+    }
 
 
 
 
 });
 const User = mongoose.model("User", userSchema)
+
+
 
 module.exports=  User;
