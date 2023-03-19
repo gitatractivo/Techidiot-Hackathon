@@ -1,5 +1,6 @@
 import React from "react";
 import MediaControlCard from "../components/CardComponent";
+import Faqs from "./Faqs";
 
 const Hero = () => {
   return (
@@ -28,6 +29,14 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* FAQ section  */}
+      <div>
+        <Faqs/>
+      </div>
+      {/* How does it Work Section */}
+      <div>
+        
       </div>
     </section>
   );
