@@ -4,27 +4,50 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import StarIcon from "@mui/icons-material/Star";
+import EventAvailableOutlinedIcon from "@mui/icons-material/EventAvailableOutlined";
+
 
 export default function MediaCard({ dataSet }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 ,marginBottom: "20px"}}>
       <CardMedia
         sx={{ height: 140 }}
-        image={`${dataSet.img}`}
+        image={`https://robohash.org/${dataSet.name}.png?size=620x350`}
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-         {dataSet.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-         {dataSet.desc}
-        </Typography>
+        <div className="text-center font-bold text-md mb-1">
+          {dataSet.major}
+        </div>
+        <div className="p-2">
+          <div className="flex flex-row items-center justify-start w-full gap-x-1">
+            <StarIcon></StarIcon>
+            <span className="font-bold">Specialization</span>
+          </div>
+          <div>
+            {dataSet.specialization.map((onedata) => (
+              <h1>{onedata}</h1>
+            ))}
+          </div>
+        </div>
+        <div className="p-2 mt-2">
+          <div className="flex flex-row items-center justify-start w-full gap-x-1">
+            <EventAvailableOutlinedIcon/>
+            <span className="font-bold capitalize">next available date</span>
+          </div>
+          <p>{dataSet.next_available_date}</p>
+        </div>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <div className="flex flex-col md:flex-row justify-center w-full items-center gap-x-10 mt-1 px-4 py-2">
+          <Button size="small" variant="contained" color="warning">
+            View Profile
+          </Button>
+          <Button size="small" variant="contained" color="secondary">
+            Book Session
+          </Button>
+        </div>
       </CardActions>
     </Card>
   );

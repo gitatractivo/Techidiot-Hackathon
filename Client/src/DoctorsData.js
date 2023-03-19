@@ -1,0 +1,85 @@
+const DoctorsData = [
+  {
+    id: "1",
+    name: "Dr. Jane Doe",
+    major: "MA in Clinical Psychology",
+    specialization: ["Depression", "Stress", "Couple Counseling"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "2",
+    name: "Dr. John Smith",
+    major: "MA in Counselling",
+    specialization: ["Anxiety", "PTSD", "Grief Counseling"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "3",
+    name: "Dr. Sarah Lee",
+    major: "MA in Clinical Psychology",
+    specialization: ["Eating Disorders", "Substance Abuse", "Trauma"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "4",
+    name: "Dr. Michael Chen",
+    major: "MA in Counseling Psychology",
+    specialization: [
+      "Relationship Issues",
+      "Career Counseling",
+      "Anger Management",
+    ],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "5",
+    name: "Dr. Karen Patel",
+    major: "PhD in Clinical Psychology",
+    specialization: ["OCD", "Phobias", "Parenting"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "6",
+    name: "Dr. William Park",
+    major: "MA in Marriage and Family Therapy",
+    specialization: ["Divorce", "Childhood Trauma", "Addiction"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "7",
+    name: "Dr. Samantha Wong",
+    major: "PhD in Clinical Psychology",
+    specialization: [
+      "Bipolar Disorder",
+      "Schizophrenia",
+      "Personality Disorders",
+    ],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "8",
+    name: "Dr. Ethan Jackson",
+    major: "MA in Counseling",
+    specialization: [
+      "Sexual Dysfunction",
+      "LGBTQ+ Issues",
+      "Stress Management",
+    ],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "9",
+    name: "Dr. Lily Chen",
+    major: "PhD in Counseling Psychology",
+    specialization: ["Anxiety Disorders", "Depression", "Self-esteem"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+  {
+    id: "10",
+    name: "Dr. James Lee",
+    major: "MA in Clinical Psychology",
+    specialization: ["Eating Disorders", "Substance Abuse", "Trauma"],
+    next_available_date: "Mar 19, 2023 9:00 AM",
+  },
+];
+export default DoctorsData;

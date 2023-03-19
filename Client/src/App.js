@@ -31,15 +31,15 @@ function App() {
       <Navbar isTopOfPage={isTopOfPage} />
       <Routes>
         <Route path="/" element={<Hero />}></Route>
-        <Route path="/review" element={<Reviews />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/faqs" element={<Faqs />}></Route>
         <Route path="/" element={<Hero />}></Route>
         <Route path="/form" element={<MultiStepForm />}></Route>
-        <Route path="/therapist" element={<Therapist/>}></Route>
+        <Route path="/therapist" element={<Therapist />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }
